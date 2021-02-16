@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@300&display=swap');
+body{
+       background-color: #F0E3D0;
+}
+h1{
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #4B4B4B;
+    font-size: 40px;
+    line-height: 40px;
+}
+.registration-form{
+    margin:0 auto;
+    width:350px;
+    background-color: #FFFFFF40;
+    border-radius: 10px;
+    height: 450px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+}
+.registration-form label{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+   font-size: 15px;
+}
+.registration-form input{
+   width: 100%;
+    margin-bottom: 15px; 
+     font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    border-radius: 3px;
+}
+
+.gender-radio{
+    display: inline-block;
+    font-size:15px;
+    padding-left: 25px;
+    padding-right: 15px;
+    
+}
+.gender-radio input{
+    width: auto;
+}
+
+
+input[type=button], input[type=reset] {
+    width:45%;
+    margin: 5px 5px 1px 5px;
+    height: 30px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #FE8369;
+}
+.Error{
+    font-size: 12px;
+    color: red;
+    padding-left:15px;
+    
+}
