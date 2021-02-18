@@ -34,6 +34,20 @@ btninsert.onclick=function()
          document.getElementById("emailError").innerHTML = "*Invalid email";
             x=false;
     }
+    else
+        {
+            var user = JSON.parse(localStorage.getItem('user'));
+            var i;
+            for (i = 0; i < user.length; i++) 
+            {
+                    if(user[i].email==email) 
+                    {
+                        document.getElementById("emailError").innerHTML = "*email already exists";
+                        x=false;
+                    }
+            }   
+        }
+    
      if (fname==null || fname=="")
      {  
         document.getElementById("fnameError").innerHTML = "*First name is madatory";
@@ -83,6 +97,11 @@ btninsert.onclick=function()
         }
      else
      {
+         
+        /* password = crypt.encrypt(password);
+console.log(password);
+         */
+         
          let newUser1 = {
 			fname : fname,
 			lname : lname,
@@ -99,3 +118,29 @@ btninsert.onclick=function()
         window.location.href = "Login.html";
      }
 }
+
+/*
+    
+var crypt = {
+  // (B1) THE SECRET KEY
+  secret : "CIPHERKEY",
+ 
+  // (B2) ENCRYPT
+  encrypt : function (clear) {
+    var cipher = CryptoJS.AES.encrypt(clear, crypt.secret);
+    cipher = cipher.toString();
+    return cipher;
+  },
+ 
+  // (B3) DECRYPT
+  decrypt : function (cipher) {
+    var decipher = CryptoJS.AES.decrypt(cipher, crypt.secret);
+    decipher = decipher.toString(CryptoJS.enc.Utf8);
+    return decipher;
+  }
+};
+ 
+
+ 
+
+*/

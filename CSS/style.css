@@ -14,15 +14,18 @@ h1{
     width:350px;
     background-color: #FFFFFF40;
     border-radius: 10px;
-    height: 450px;
+    height:auto;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 30px;
+    display: block;
 }
 .registration-form label{
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
    font-size: 15px;
+    width: 100%;
+    display: inline-block;
 }
 .registration-form input{
    width: 100%;
@@ -35,9 +38,6 @@ h1{
 .gender-radio{
     display: inline-block;
     font-size:15px;
-    padding-left: 25px;
-    padding-right: 15px;
-    
 }
 .gender-radio input{
     width: auto;
@@ -58,4 +58,8 @@ input[type=button], input[type=reset] {
     color: red;
     padding-left:15px;
     
+}
+
+input[type=checkbox], input[type=radio]{
+    width:auto;
 }
