@@ -1,0 +1,69 @@
+<html>
+<head>
+    <link rel="stylesheet" href="CSS/styleCreate-todo.css">
+    
+</head>
+<body>
+    
+     <div class='nav-bar'>
+        <ul>
+            <li><a href="Profile.html">Home</a></li>
+            <li><a href="EditProfile.html">Edit Profile</a></li>
+            <li >
+                <div class="dropdown">
+                    <a href="#todo" >Todo</a>
+                    <div class="dropdown-content">
+                        <a href="UpdateTodo.html"> Update</a>
+                        <a href="DeleteTodo.html"> Delete</a>
+                        <a href="View-todo.html"> Records </a>
+                    </div>
+                </div>
+               
+            </li>
+            <li><a href="Login.html" onclick="logout()">Logout</a></li>
+        </ul>
+        </div>
+    
+    <section class="firstsection">
+    
+<h1>New TODO</h1>
+    <form class="registration-form">
+        
+        <label>Date </label>
+            <input type="date" id="cdate" >
+        
+        <label>Categories</label>
+            <input type="checkbox" id="a" name="a" value="a">A
+            <input type="checkbox" id="b" name="b" value="b">B
+            <input type="checkbox" id="c" name="c" value="c">C
+        
+        <label>Mark as done</label>
+            <input type="radio" id="dyes" name="isdone" value="yes">Yes
+            <input type="radio" id="dno" name="isdone" value="no">No
+        
+        <label>isPublic</label> 
+            <input type="radio" id="pyes" name="ispublic" value="yes">Yes
+            <input type="radio" id="pno" name="ispublic" value="no">No
+        
+        <label>Attach Image</label>
+            <input type="file">
+        
+        <label>Reminder</label>
+            <label for="chkYes">
+                <input type="radio" id="chkYes" name="chkRem" onclick="ShowHideDiv()" />Yes
+            </label>
+            <label for="chkNo">
+                <input type="radio" id="chkNo" name="chkRem" onclick="ShowHideDiv()" />No
+            </label>
+        
+        <label id="RemDate">Reminder Date <input type="date" id="rdate" ></label>
+    
+        <input type="button" id="btnadd-todo" value="Submit" onclick="addTodo()">
+        <input type="reset">
+    
+    </form>
+        
+        </section>
+</body>
+    <script src="JS/Create-todo.js"></script>
+</html>
