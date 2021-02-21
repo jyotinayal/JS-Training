@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+body{
+         background-color: #F2F2F2;
+   
+        text-align: center;
+}
+
+.Login-container{
+     margin:0 auto;
+    height: 250px;
+    width:250px;
+    padding-top: 150px; 
+}
+h1{
+    text-align: center;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+}
+.Login-container label{
+    font-family: 'Mulish', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+#login{
+    width:60%;
+    height:10%;
+    margin-top: 10px;
+}
