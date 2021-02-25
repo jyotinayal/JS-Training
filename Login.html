@@ -6,10 +6,11 @@
 <body onload="loading()">
     <div class="Login-container">
         <h1> Login </h1>
-        <label>Username<sapn class="error" id="unameError"></sapn><input type="text" id="uname" ></label>
-        <label>Password<span class="error" id="pwdError"></span><input type="text" id="pwd" ></label>
-        <input type="button" id="btn-login" value="Login" onclick="logincheck()" >
-         
+        <label>Username<sapn class="Error" id="uname_Err"></sapn><input type="text" id="uname" ></label>
+        <label>Password<span class="Error" id="pw_Err"></span><input type="password" id="pwd" ></label>
+        <label><input type="button" id="btn-login" value="Login" onclick="logincheck()" ></label>
+         New User? <a href="index.html">Sign up</a>
+        <div id="database-errorMsg"></div>
     </div>
 </body>
     <script src="JS/login.js"></script>
