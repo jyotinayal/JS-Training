@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="CSS/style.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+        
+    </head>
+    <body>
+        <h1>Registration Form</h1>
+        <div class="registration-form">
+        <form id="RegistrationForm">
+            <label>Email<span id="emailError" class="Error"></span></label>
+            <input type="text" id="email">
+            <label>First name<span id="fnameError" class="Error"></span></label><input type="text" id="fname">
+            <label>Last name<span id="lnameError" class="Error"></span></label><input type="text" id="lname">
+            <label>Gender</label>
+            
+            <label class="gender-radio">
+                    <input type="radio" id="male" name="gender" value="male">Male
+                    <input type="radio" id="female" name="gender" value="female">Female
+                    <input type="radio" id="other" name="gender" value="other">Other
+            </label>
+                <span id="genderError" class="Error"></span>
+        
+            <label>Address<span id="addressError" class="Error"></span></label><input type="text" id="address">
+            <label>Password<span id="passwordError" class="Error"></span></label><input type="password" id="password">
+            <label>Profile image <span id="imgError" class="Error"></span></label><input type="file"  name="pimg" accept="image/*">
+            <input type="button" id="btninsert" value="Submit">
+            <input type="reset">
+        </form>
+            Already have a account <a href="Login.html">Login</a>
+        </div>
+        
+       
+        
+    </body>
+     
+<script src="JS/registration.js"></script>
+</html>
