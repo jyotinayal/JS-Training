@@ -1,7 +1,16 @@
+(function(){
+     if(sessionStorage.getItem("username"))
+    { 
+        window.location.href = "Profile.html";
+    }
+
+})();
+let res;
 if(!localStorage.getItem('user'))
 {
     localStorage.setItem('user', JSON.stringify([]));
 }
+//registration operation
 btninsert.onclick=function()
 {
     let gender,email,fname,lname,address,password,enpw;  
@@ -24,6 +33,10 @@ btninsert.onclick=function()
      address=document.getElementById("address").value; 
      password=document.getElementById("password").value;
     
+    if(document.getElementById('male').checked == false || document.getElementById('female').checked == false || document.getElementById('other').checked == false )
+        {
+            document.getElementById("genderError").innerHTML ="*select gender"
+        }
      if(email==null || email=="")
      {
          document.getElementById("emailError").innerHTML = "*email is madatory";
@@ -98,9 +111,7 @@ btninsert.onclick=function()
      else
      {
          
-        /* password = crypt.encrypt(password);
-console.log(password);
-         */
+         password = crypt.encrypt(password);
          
          let newUser1 = {
 			fname : fname,
@@ -108,9 +119,11 @@ console.log(password);
 			email : email,
             gender : gender,
 			address : address,
-			password : password
+			password : password,
+             profileimg : res
 			
 		};
+         console.log(newUser1);
 		let j = JSON.parse(localStorage.getItem('user'));
 		j.push(newUser1);
 		localStorage.setItem('user', JSON.stringify(j));   
@@ -119,28 +132,29 @@ console.log(password);
      }
 }
 
-/*
-    
+
+//Encrypt password    
 var crypt = {
-  // (B1) THE SECRET KEY
   secret : "CIPHERKEY",
- 
-  // (B2) ENCRYPT
   encrypt : function (clear) {
     var cipher = CryptoJS.AES.encrypt(clear, crypt.secret);
     cipher = cipher.toString();
     return cipher;
   },
- 
-  // (B3) DECRYPT
   decrypt : function (cipher) {
     var decipher = CryptoJS.AES.decrypt(cipher, crypt.secret);
     decipher = decipher.toString(CryptoJS.enc.Utf8);
     return decipher;
   }
 };
- 
-
- 
-
-*/
+//Convert image to base64
+ function encodeImageFileAsURL(element) {
+        let file = element.files[0];
+        let reader = new FileReader();
+        reader.onloadend = function() {
+            console.log(res);
+        res = reader.result;
+             //localStorage.setItem("imgbase64",res);
+        }
+        reader.readAsDataURL(file);
+      }
