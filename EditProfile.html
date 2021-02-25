@@ -3,47 +3,35 @@
         <link rel="stylesheet" href="CSS/styleEditProfile.css">
     </head>
     <body>
-        
         <section class='nav-bar'>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="EditProfile.html">Edit Profile</a></li>
-            <li >
-                <div class="dropdown">
-  <a href="#todo" >Todo</a>
-  <div class="dropdown-content">
-    <a href="Create-todo.html"> Create </a>
-      <a href="UpdateTodo.html"> Update</a>
-      <a href="DeleteTodo.html"> Delete</a>
-      <a href="View-todo.html"> Records </a>
-  </div>
-</div>
-               
-            </li>
-            <li><a href="Login.html" onclick="logout()">Logout</a></li>
+            <img src='Images/logo.png' class='iconDetails'>
+            <ul>
+                <li><a href="Profile.html">Home</a></li>
+                <li ><a href="todo.html" >Todo</a></li>
+                <li><a href="Login.html" onclick="logout()">Logout</a></li>
             </ul>
         </section>
-        
-       
-            <div class="registration-form">
-         <form>
-            <label>First name<span id="fnameError" class="Error"></span></label><input type="text" id="fname">
-            <label>Last name<span id="lnameError" class="Error"></span></label><input type="text" id="lname">
+        <div class="registration-form">
+        <form>
+            <label>First name<span id="fnameError" class="Error"></span></label>
+            <input type="text" id="fname">
+            <label>Last name<span id="lnameError" class="Error"></span>
+            </label><input type="text" id="lname">
             <label>Gender</label>
             <label class="gender-radio">
                     <input type="radio" id="male" name="gender" value="male">Male
                     <input type="radio" id="female" name="gender" value="female">Female
                     <input type="radio" id="other" name="gender" value="other">Other
             </label>
-                <span id="genderError" class="Error"></span>
+            <span id="genderError" class="Error"></span>
             <label>Address<span id="addressError" class="Error"></span></label><input type="text" id="address">
-            <label>Profile image <span id="imgError" class="Error"></span></label><input type="file"  name="pimg" accept="image/*">
-            <input type="button" id="btninsert" onclick="myFunction()" value="Submit">
-            <input type="reset">
+            <label>Profile image <span id="e_pimgError" class="Error"></span></label> 
+             <img id="pic" height="150px" width="150px">
+             <input type="file" onchange="encodeImageFileAsURL(this)" name="pimg" accept="image/*" id="epic" />
+             <input type="button" id="btninsert" onclick="editProfile()" value="Submit">
+             <input type="reset">
         </form>
-            </div>
-       
+        </div>
     </body>
     <script src="JS/EditProfile.js"></script>
-    
 </html>
