@@ -1,0 +1,49 @@
+<html>
+<head>
+    <link rel="stylesheet" href="CSS/styleP.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body onload="loads()">
+     <div class='nav-bar'>
+         <img src='Images/logo.png' class='iconDetails'>
+         <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="EditProfile.html">Edit Profile</a></li>
+            <li ><a href="todo.html"> Todo </a></li>
+            <li><a href="Login.html" onclick="logout()">Logout</a></li>
+            <li><button type="button" class="icon-button" onclick="showNotification()">
+                <span class="material-icons"></span>
+                <span class="icon-button__badge" id="count-notification" > </span>
+                </button>
+             </li>
+            
+         </ul>
+    </div>
+        <div class="UserProfile">
+					<div id="Details">
+							<img id="pimg">
+                        <div class="form-details">
+							<div>
+                                <label>Name: </label>
+                                <label id="fn"> </label> 
+                                <label id="ln"> </label>
+                            </div>	
+							<div>
+                                <label>Email: </label>
+                                <label id="un"> </label>
+                            </div>
+							<div>
+                                <label>Gender:</label>
+                                <label id="gen"> </label>
+                            </div>
+							<div><label> Address:</label><label id="add"> </label>	</div>
+                        </div>
+                    </div>
+        </div>
+    <div id="notification">Notification
+        <p id="notify"></p>
+         <p id="notifyRem"></p>
+    </div>
+</body>
+   <script src="JS/Profile.js"></script>
+</html>
