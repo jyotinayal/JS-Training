@@ -1,0 +1,142 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="CSS/todo.css">
+    </head>
+    <body onload="viewLoads()">
+        
+        <section class='nav-bar'>
+            <img src='Images/logo.png' class='iconDetails'>
+            <ul>
+                <li><a href="Profile.html">Home</a></li>
+                <li><a href="EditProfile.html">Edit Profile</a></li>
+                <li><a href="Login.html" onclick="logout()">Logout</a></li>
+            </ul>
+        </section>
+        <div class="main-body">
+            <div class="operations">
+            <button onclick="CreateTodo()" class="op-todo">Create-Todo</button>
+            <button onclick="ViewTodo()" class="op-todo">View-Todo</button>
+            <button onclick="UpdateTodo()" class="op-todo">Update-Todo</button>
+            <button onclick="DeleteTodo()" class="op-todo">Delete-Todo</button>
+            <select id="sort-box" class="op-todo" onchange="bysort(this)">
+				<option value="select">Sort By</option>
+                <option value="datewise">Date</option>
+                <option value="isDone">Is Done Status</option>
+			</select>
+            <select id="filter-box" class="op-todo" onchange="byfilter(this)">
+				    <option value="select">Filter By</option>
+                    <option value="categories">Categories</option>
+                    <option value="isDone">Is Done Status</option>
+                    <option value="dateRange">Date Range: </option>
+                    <option value="isPending">isPending: </option>
+            </select>    
+            <select id="search-box" class="op-todo" onchange="bysearch(this)">
+				    <option value="select">Search By</option>
+                    <option value="tdate">Task Date</option>
+                    <option value="search-tname">Task Name</option>
+            </select>
+            </div>
+            <div id="display-area">
+                <div id="grp-filter">
+                    <select name="categories" id="cat" onchange="byCat()">
+                        <option>select</option>
+                        <option value="study">Study</option>
+                        <option value="sports">Sports</option>
+                        <option value="other">Other</option>
+                    </select>
+        
+                    <select name="isDone" id="isdone" onchange="byStatus()">
+                        <option>select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+            
+                    <div id="datetofrom">
+                        date from<input type="date" id="datefrom">
+                        date to<input type="date" id="dateto"> 
+                        <input type="button" onclick="datetofrom()" value="Show">
+                    </div>
+            
+                    <input type="button" id="isPending" onclick="isPending()" value="isPending">
+            </div>
+            <div id="searchtodo">
+                <label id="bytdate">
+                    <input type="date" id="datesearch"> <input type="button" onclick="dateSearch()" value="Show"></label>
+                <label id="bytname">
+                    <input type="text" id="myInput" onkeyup="searchName()" placeholder="Search for names.." title="Type in a name"></label> 
+            </div>
+           
+            <section id="createtodo">
+                <h1>New TODO</h1>
+                <form class="registration-form">
+                    <label>Name<span id="todo-nameErr" class="Error"></span></label>
+                    <input type="text" id="todoName">
+                    <label>Date <span id="cdateErr" class="Error"></span> </label>
+                    <input type="date" id="cdate" >
+                    <label>Categories <span id="catErr" class="Error"></span></label>
+                        <input type="checkbox" id="study" name="study" value="study">Study
+                        <input type="checkbox" id="sports" name="sports" value="sports">Sports
+                        <input type="checkbox" id="other" name="other" value="other">Other
+                    <label>isPublic <span id="publicErr" class="Error"></span></label> 
+                        <input type="radio" id="pyes" name="ispublic" value="yes">Yes
+                        <input type="radio" id="pno" name="ispublic" value="no">No
+                    <label>Attach Image <span id="imgErr" class="Error"></span></label>
+                    <input type="file" id="addimg" onchange="encodeImageFileAsURL(this)">
+                    <label>Reminder <span id="remErr1" class="Error"></span></label>
+                        <label for="chkYes">
+                            <input type="radio" id="chkYes" name="chkRem" onclick="ShowHideDiv()" />Yes
+                        </label>
+                        <label for="chkNo">
+                            <input type="radio" id="chkNo" name="chkRem" onclick="ShowHideDiv()" />No
+                        </label>
+                        <label id="RemDate">Reminder Date<span id="rdateErr" class="Error"></span> <input type="date" id="rdate" ></label>
+                            <input type="button" id="btnadd-todo" value="Submit" onclick="addTodo()">
+                            <input type="reset">
+                </form>
+              </section>      
+             <section id="viewtodo">
+             </section>
+             <section id="deletetodo">
+            
+                <input type="button" onclick="Deleteall()" name="deleteall-btn" value="Delete" class="delete-btn">
+            </section>
+            <section id="updatetodo">
+            <div id="updatetodoRecord">
+               <form class="registration-form">
+                    
+                    <label>Task Name <span id="ctname_uErr" class="Error"></span> </label>
+                    <input type="text" id="ctnameu">
+                   <label>Date <span id="cdate_uErr" class="Error"></span> </label>
+                    <input type="date" id="cdateu">
+                   <label>Mark as done <span id="done_uErr" class="Error"></span></label>
+                    <input type="radio" id="dyesu" name="isdone" value="yes">Yes
+                    <input type="radio" id="dnou" name="isdone" value="no">No
+                   <label>isPublic <span id="public_uErr" class="Error"></span></label> 
+                    <input type="radio" id="pyesu" name="ispublic" value="yes">Yes
+                    <input type="radio" id="pnou" name="ispublic" value="no">No
+                   <label>Attach Image <span id="img_uErr" class="Error"></span></label>
+                    <img id="uimg" height='100px' width='200px'>
+                   <input type="file" onchange="encodeImageFileAsURL(this)" id="toimg">
+                    <label>Reminder <span id="rem_uErr" class="Error"></span></label>
+                    <label for="chkYes">
+                        <input type="radio" id="chYesu" name="chkRem" onclick="ShowHideRDiv()" value="on" />Yes
+                    </label>
+                    <label for="chkNo">
+                        <input type="radio" id="chNou" name="chkRem" onclick="ShowHideRDiv()" value="off"/>No
+                    </label>    
+                   <label id="RDate">Reminder Date <span id="rdate_uErr" class="Error"> <input type="date" id="rdateu"></span></label>
+                        <input type="button" id="btnadd-todo" value="Submit" onclick="updateRecord()">
+                        <input type="reset">
+                </form>
+            </div>
+            </section>
+           
+            <div id="cat-list">
+           
+            </div>
+        </div>
+        </div>
+    </body>
+    <script src="JS/todo.js"></script>
+   
+</html>
