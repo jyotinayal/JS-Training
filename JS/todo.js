@@ -170,6 +170,12 @@ function datetofrom(){
     var f= false;
     var tdate = document.getElementById("dateto").value;
     var fdate = document.getElementById("datefrom").value;
+    console.log(tdate)
+    console.log(fdate)
+    console.log(tdate<fdate)
+    console.log(tdate>fdate)
+    if(tdate>fdate)
+   {
     var i;
      var text="<table class='tab'><tr><th>tid</th><th>Task Name</th><th>Todo date</th><th>Category Study</th><th>Category Sports</th><th>Category Other</th><th>Mark as done</th><th>isPublic</th><th>Reminder</th><th>Reminder Date</th><th>Todo Image</th></tr>";
     for (i = 0; i < usertodo.length; i++) 
@@ -189,6 +195,10 @@ function datetofrom(){
     }
     else{
         document.getElementById("cat-list").innerHTML = "No Data Available";
+    }
+   }
+    else{
+        document.getElementById("cat-list").innerHTML = "From Date should be Greater than to day ";
     }
 }
 
