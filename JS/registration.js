@@ -15,6 +15,7 @@ btninsert.onclick=function()
 {
     let gender,email,fname,lname,address,password,enpw;  
     var x= true;
+    var passw=  /^[A-Za-z]\w{7,14}$/;
     if (document.getElementById('male').checked) 
     {
         gender = document.getElementById('male').value;                     
@@ -33,7 +34,7 @@ btninsert.onclick=function()
      address=document.getElementById("address").value; 
      password=document.getElementById("password").value;
     
-    if(document.getElementById('male').checked == false || document.getElementById('female').checked == false || document.getElementById('other').checked == false )
+    if(document.getElementById('male').checked == false && document.getElementById('female').checked == false && document.getElementById('other').checked == false )
         {
             document.getElementById("genderError").innerHTML ="*select gender"
         }
@@ -91,18 +92,22 @@ btninsert.onclick=function()
          document.getElementById("addressError").innerHTML = "*address is madatory";
          x=false;
      }
-     if(password==null || password=="")
+      if(password==null || password=="")
      {
          document.getElementById("passwordError").innerHTML = "*password is madatory";
          x=false;
      }
-    else if(password.length<6)
+   else if(password.length < 8)
+       {
+           document.getElementById("passwordError").innerHTML = "*password is short,atleast 8 charachter Required";
+         x=false;
+       }
+    else if(!(password.match(/[a-z]/g) && password.match(/[A-Z]/g) && password.match(/[0-9]/g) && password.match( /[^a-zA-Z\d]/g) ))
         {
-            document.getElementById("passwordError").innerHTML = "*password is short";
+            document.getElementById("passwordError").innerHTML = "*required 1 uppercase 1 lowercase 1 digit 1 special";
          x=false;
         }
     
-     
      
      if(x!= true)
         {
