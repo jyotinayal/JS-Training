@@ -138,12 +138,12 @@ input[type=checkbox], input[type=radio]{
 }
 #datetofrom{
     padding-left: 30px;
-    float:left;
+    padding-right: 30px;
+   
 }
 #datetofrom input{
     width:200px;
     height:40px;
-    padding-right: 20px;
     margin-bottom: 20px;
 }
 #isPending, #isdone, #cat{
@@ -170,4 +170,12 @@ input[type=checkbox], input[type=radio]{
 }
 .delete-btn{
  width:20px;   
+}
+#table5 th{
+        cursor: pointer;
+}
+.sort-arrow{
+    width:30px;
+    height:25px;
+    padding-left: 5px;
 }

@@ -18,17 +18,18 @@
             <button onclick="ViewTodo()" class="op-todo">View-Todo</button>
             <button onclick="UpdateTodo()" class="op-todo">Update-Todo</button>
             <button onclick="DeleteTodo()" class="op-todo">Delete-Todo</button>
-            <select id="sort-box" class="op-todo" onchange="bysort(this)">
+            <button onclick="sortTableShow()" class="op-todo">Sort-Todo</button>
+          <!--  <select id="sort-box" class="op-todo" onchange="bysort()">
 				<option value="select">Sort By</option>
                 <option value="datewise">Date</option>
                 <option value="isDone">Is Done Status</option>
-			</select>
+			</select> -->
             <select id="filter-box" class="op-todo" onchange="byfilter(this)">
 				    <option value="select">Filter By</option>
                     <option value="categories">Categories</option>
-                    <option value="isDone">Is Done Status</option>
-                    <option value="dateRange">Date Range: </option>
-                    <option value="isPending">isPending: </option>
+                    <option value="isDone">IsDone Status</option>
+                    <option value="dateRange">Date Range </option>
+                    <option value="isPending">IsPending Status </option>
             </select>    
             <select id="search-box" class="op-todo" onchange="bysearch(this)">
 				    <option value="select">Search By</option>
@@ -39,16 +40,10 @@
             <div id="display-area">
                 <div id="grp-filter">
                     <select name="categories" id="cat" onchange="byCat()">
-                        <option>select</option>
+                        <option value="select">select</option>
                         <option value="study">Study</option>
                         <option value="sports">Sports</option>
                         <option value="other">Other</option>
-                    </select>
-        
-                    <select name="isDone" id="isdone" onchange="byStatus()">
-                        <option>select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
                     </select>
             
                     <div id="datetofrom">
@@ -56,8 +51,6 @@
                         date to<input type="date" id="dateto"> 
                         <input type="button" onclick="datetofrom()" value="Show">
                     </div>
-            
-                    <input type="button" id="isPending" onclick="isPending()" value="isPending">
             </div>
             <div id="searchtodo">
                 <label id="bytdate">

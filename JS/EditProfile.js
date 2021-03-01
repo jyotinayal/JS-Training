@@ -34,30 +34,61 @@ function editProfile(){
     var i
     let firstn,lastn,gender,address;
     var x = true;
-    if(document.getElementById("fname").value == ""  )
+    firstn=document.getElementById("fname").value;
+    lastn=document.getElementById("lname").value;
+    address=document.getElementById("address").value ;
+    firstn=firstn.trim();
+    lastn=lastn.trim();
+    address=address.trim();
+    if(firstn == "" || firstn == null )
     {
-        document.getElementById('fnameError').innerHTML="first name is mandatory"
+        document.getElementById('fnameError').innerHTML="First name is mandatory"
         x= false;
     }
-    if(document.getElementById("lname").value == "")
+    else if(!isNaN(firstn))
+         {
+        document.getElementById("fnameError").innerHTML = "*Enter alphabet only";
+         x=false; 
+         }
+    else{
+        document.getElementById("fnameError").innerHTML = ""
+    }
+    if( lastn== "" || lastn==null)
         {
-           document.getElementById('lnameError').innerHTML="last name is mandatory";
+           document.getElementById('lnameError').innerHTML="Last name is mandatory";
             x= false;
         }
-    if(document.getElementById("address").value == "")
+    else if(!isNaN(lastn))
+         {
+        document.getElementById("fnameError").innerHTML = "*Enter alphabet only";
+         x=false; 
+         }
+    else{
+        document.getElementById("fnameError").innerHTML = ""
+    }
+    if(address== "" || address== null)
         {
-           document.getElementById('addressError').innerHTML="last name is mandatory" ;
+           document.getElementById('addressError').innerHTML="Address is mandatory" ;
             x= false;
         }
+    else{
+        document.getElementById('addressError').innerHTML=""
+    }
     if(document.getElementById("male").checked == false && document.getElementById("female").checked == false && document.getElementById("other").checked == false)
         {
            document.getElementById('genderError').innerHTML="gender is mandatory" ;
             x= false;
         }
+    else{
+         document.getElementById('genderError').innerHTML=""
+    }
     if(document.getElementById('epic').length == 0 && document.getElementById('pic').src == "")
     {
         document.getElementById('e_imgError').innerHTML="image is mandatory" ;
         x= false;
+    }
+    else{
+        document.getElementById('e_imgError').innerHTML=""
     }
     if(x!=true)
         {

@@ -6,10 +6,6 @@
 
 })();
 let res;
-if(!localStorage.getItem('user'))
-{
-    localStorage.setItem('user', JSON.stringify([]));
-}
 //registration operation
 btninsert.onclick=function()
 {
@@ -24,10 +20,11 @@ btninsert.onclick=function()
     {
          gender = document.getElementById('female').value;                 
     }
-    else
+    else if (document.getElementById('other').checked) 
     {
-        gender = document.getElementById('other').value;                   
+        gender = document.getElementById('other').value; 
     }
+   
      email=document.getElementById("email").value;
      fname=document.getElementById("fname").value;
      lname=document.getElementById("lname").value;
@@ -36,11 +33,11 @@ btninsert.onclick=function()
     
     if(document.getElementById('male').checked == false && document.getElementById('female').checked == false && document.getElementById('other').checked == false )
         {
-            document.getElementById("genderError").innerHTML ="*select gender"
+            document.getElementById("genderError").innerHTML ="*Select gender"
         }
      if(email==null || email=="")
      {
-         document.getElementById("emailError").innerHTML = "*email is madatory";
+         document.getElementById("emailError").innerHTML = "*Email is madatory";
             x=false;
      }
      else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
@@ -48,20 +45,28 @@ btninsert.onclick=function()
          document.getElementById("emailError").innerHTML = "*Invalid email";
             x=false;
     }
-    else
+    else{
+        if(!localStorage.getItem('user'))
         {
+            localStorage.setItem('user', JSON.stringify([]));
+        }
+        else{
             var user = JSON.parse(localStorage.getItem('user'));
             var i;
             for (i = 0; i < user.length; i++) 
             {
                     if(user[i].email==email) 
                     {
-                        document.getElementById("emailError").innerHTML = "*email already exists";
+                        document.getElementById("emailError").innerHTML = "*Email already exists";
                         x=false;
                     }
             }   
         }
-    
+    }
+    fname=fname.trim();
+    lname=lname.trim();
+    address=address.trim();
+    password=password.trim();
      if (fname==null || fname=="")
      {  
         document.getElementById("fnameError").innerHTML = "*First name is madatory";
@@ -69,9 +74,12 @@ btninsert.onclick=function()
      }
      else if(!isNaN(fname))
          {
-        document.getElementById("fnameError").innerHTML = "*enter alphabet only";
+        document.getElementById("fnameError").innerHTML = "*Enter alphabet only";
          x=false; 
          }
+    else{
+         document.getElementById("fnameError").innerHTML = ""   
+    }
      if(lname==null || lname=="")
      {
          document.getElementById("lnameError").innerHTML = "*Last name is madatory";
@@ -79,36 +87,47 @@ btninsert.onclick=function()
      }
       else if(!isNaN(lname))
     {
-        document.getElementById("lnameError").innerHTML = "*enter alphabet only";
+        document.getElementById("lnameError").innerHTML = "*Enter alphabet only";
          x=false; 
+    }
+    else{
+        document.getElementById("lnameError").innerHTML = ""
     }
      if(gender==null || gender=="")
      {
          document.getElementById("genderError").innerHTML = "*Gender is madatory";
          x=false;
      }
+    else{
+        document.getElementById("genderError").innerHTML = ""
+    }
      if(address==null || address=="")
      {
-         document.getElementById("addressError").innerHTML = "*address is madatory";
+         document.getElementById("addressError").innerHTML = "*Address is madatory";
          x=false;
      }
+    else{
+        document.getElementById("addressError").innerHTML = ""
+    }
       if(password==null || password=="")
      {
-         document.getElementById("passwordError").innerHTML = "*password is madatory";
+         document.getElementById("passwordError").innerHTML = "*Password is madatory";
          x=false;
      }
    else if(password.length < 8)
        {
-           document.getElementById("passwordError").innerHTML = "*password is short,atleast 8 charachter Required";
+           document.getElementById("passwordError").innerHTML = "*Password is short,atleast 8 charachter Required";
          x=false;
        }
     else if(!(password.match(/[a-z]/g) && password.match(/[A-Z]/g) && password.match(/[0-9]/g) && password.match( /[^a-zA-Z\d]/g) ))
         {
-            document.getElementById("passwordError").innerHTML = "*required 1 uppercase 1 lowercase 1 digit 1 special";
+            document.getElementById("passwordError").innerHTML = "*Required 1 uppercase 1 lowercase 1 digit 1 special";
          x=false;
         }
+    else{
+         document.getElementById("passwordError").innerHTML = ""
+    }
     
-     
      if(x!= true)
         {
              return false;
