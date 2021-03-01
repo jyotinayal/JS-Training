@@ -76,7 +76,7 @@ function editProfile(){
     }
     if(document.getElementById("male").checked == false && document.getElementById("female").checked == false && document.getElementById("other").checked == false)
         {
-           document.getElementById('genderError').innerHTML="gender is mandatory" ;
+           document.getElementById('genderError').innerHTML="Gender is mandatory" ;
             x= false;
         }
     else{
@@ -84,11 +84,11 @@ function editProfile(){
     }
     if(document.getElementById('epic').length == 0 && document.getElementById('pic').src == "")
     {
-        document.getElementById('e_imgError').innerHTML="image is mandatory" ;
+        document.getElementById('e_imgError').innerHTML="Image is mandatory" ;
         x= false;
     }
     else{
-        document.getElementById('e_imgError').innerHTML=""
+       document.getElementById("e_imgError").innerHTML="";
     }
     if(x!=true)
         {

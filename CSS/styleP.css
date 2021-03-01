@@ -4,7 +4,7 @@ body
     padding: 0px;
     margin: 0px auto;
     float: none;
-    background-color: #F0E3D0;  
+    background-color: darkgreen;  
 }
     .nav-bar {
 	width: 100%;
@@ -53,6 +53,7 @@ opacity: 1;
     padding-top: 100px;
     padding-left: 450px;
     color:black;
+  
 }
 #notification{
    position: absolute;
@@ -127,4 +128,15 @@ background-image: url(../Images/notifications_none-24px.svg);
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+#Details{
+    border: solid;
+    width:350px;
+    height:350px;
+    padding: 10px;
+    padding-left: 50px;
+    padding-top: 40px;
+    border-radius: 10px;
+    background-color: white;
+    border-color:greenyellow;
 }

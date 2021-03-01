@@ -1,5 +1,5 @@
-let usertodo = JSON.parse(localStorage.getItem('user-todo'));
-let username= sessionStorage.getItem("username");
+var usertodo = JSON.parse(localStorage.getItem('user-todo'));
+var username= sessionStorage.getItem("username");
 (function(){
     if(username == undefined) 
     {
@@ -510,8 +510,9 @@ function Deleteto(i){
 
 //perform delete operations
 function Deleteall(){
-    var i,j
-    console.log(arr)
+    let i,j
+    if(arr.length>0)
+        {
     for (i = 0; i < arr.length; i++) 
     {
        for(j=0; j < usertodo.length;j++)
@@ -525,6 +526,9 @@ function Deleteall(){
     }
     localStorage.setItem("user-todo", JSON.stringify(usertodo));
     location.reload();
+        }
+    
+    document.getElementById("delete-msg").innerHTML='Select atleast 1 Todo'
 }
 
 //show list of todo records(by default on page load)
@@ -532,6 +536,8 @@ function viewLoads(){
    
     var i;
     var f= false;
+    if(usertodo != null)
+    {
     var text="<table class='tab' id='tab1'><tr><th>Task Name</th><th>Todo date</th><th>Category</th><th>Mark as done</th><th>isPublic</th><th>Reminder</th><th>Reminder Date</th><th>Todo Image</th></tr>";
     for (i = 0; i < usertodo.length; i++) 
     {
@@ -548,6 +554,7 @@ function viewLoads(){
     }
     else{
         document.getElementById("cat-list").innerHTML = "No Data Available";
+    }
     }
 }
 

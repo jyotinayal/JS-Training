@@ -43,13 +43,14 @@ function loads()
 			break;
 		}
 	}
-	
-    for(i=0; i<usertodo.length;i++)
-    {
-        if(username == usertodo[i].username)
+	if(localStorage.getItem('user-todo') != null)
+    {    
+        for(i=0; i<usertodo.length;i++)
+        {
+            if(username == usertodo[i].username)
             {
                 if(today == usertodo[i].cdate)
-                    {
+                {
                         count++;
                         ttask+=usertodo[i].tid+" "+usertodo[i].todoname+"<br>"
                     }
@@ -59,9 +60,9 @@ function loads()
                         rtask+=usertodo[i].tid+" "+usertodo[i].todoname+"<br>"
                     }
             }
-    }
-     document.getElementById('notification').style.display='none'
-    if(count>0)
+        }
+        document.getElementById('notification').style.display='none'
+        if(count>0)
         {
             if(ttask == "")
                 {
@@ -75,9 +76,11 @@ function loads()
             document.getElementById("notifyRem").innerHTML = 'Reminder for :- '+rtask;
             document.getElementById('count-notification').innerHTML=count;
         }
-    else{
-        document.getElementById('notification').style.display = 'none';
-        document.getElementById('count-notification').innerHTML=count;
+        else
+        {
+            document.getElementById('notification').style.display = 'none';
+            document.getElementById('count-notification').innerHTML=count;
+        }
     }
 }
 
