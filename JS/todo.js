@@ -69,30 +69,28 @@ function byCat()
             viewLoads();
         }
     else{
-        
-    
-    var i;
-    var f=false;
-    var text="<table class='tab'><tr><th>Task Name</th><th>Todo date</th><th>Category</th><th>Mark as done</th><th>isPublic</th><th>Reminder</th><th>Reminder Date</th><th>Todo Image</th></tr>";
-    for (i = 0; i < usertodo.length; i++) 
-    {
-       if(usertodo[i].username == username) 
-        {   
-            if(usertodo[i].catStudy == cat || usertodo[i].catSports == cat || usertodo[i].catOther == cat)
-            {
-                f=true;
-               text+="<tr>"+tableShow(i)+"</tr>";
+        var i;
+        var f=false;
+        var text="<table class='tab'><tr><th>Task Name</th><th>Todo date</th><th>Category</th><th>Mark as done</th><th>isPublic</th><th>Reminder</th><th>Reminder Date</th><th>Todo Image</th></tr>";
+        for (i = 0; i < usertodo.length; i++) 
+        {
+            if(usertodo[i].username == username) 
+            {   
+                if(usertodo[i].catStudy == cat || usertodo[i].catSports == cat || usertodo[i].catOther == cat)
+                {
+                    f=true;
+                    text+="<tr>"+tableShow(i)+"</tr>";
+                }
             }
         }
-    }
-    text+="</table>";
-    if(f == true){
-        document.getElementById("cat-list").innerHTML= text;
-    }
-    else{
-        document.getElementById("cat-list").innerHTML = "No Data Available";
-    }
-    }
+        text+="</table>";
+        if(f == true){
+            document.getElementById("cat-list").innerHTML= text;
+        }
+        else{
+            document.getElementById("cat-list").innerHTML = "No Data Available";
+        }
+        }
 }
 
 //filter accoring to data range
@@ -102,10 +100,6 @@ function datetofrom(){
     var f= false;
     var tdate = document.getElementById("dateto").value;
     var fdate = document.getElementById("datefrom").value;
-    console.log(tdate)
-    console.log(fdate)
-    console.log(tdate<fdate)
-    console.log(tdate>fdate)
     if(tdate>fdate)
     {
         var i;
@@ -406,8 +400,6 @@ function updateRecord(){
         document.getElementById('done_uErr').innerHTML="Choose one option"
        
     }
-    
-    
     if (document.getElementById('pyesu').checked) 
     {
         ispublic = document.getElementById('pyesu').value;
@@ -431,8 +423,7 @@ function updateRecord(){
     {
         reminder = 'No';                  
         rdate=null;
-    }
-    
+    }  
     if(document.getElementById('chYesu').checked == false && document.getElementById('chNou').checked==false)
         {
             document.getElementById('rem_uErr').innerHTML="Choose one option"
@@ -558,35 +549,6 @@ function viewLoads(){
     else{
         document.getElementById("cat-list").innerHTML = "No Data Available";
     }
-}
-
-//represents sort todo
-function bysort(){
-   sortTableShow();
-}
-
-function sortFunction(index)
-{
-    var table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("tab1");
-    switching = true;
-    while (switching) {
-    switching = false;
-    rows = table.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[index];
-      y = rows[i + 1].getElementsByTagName("TD")[index];
-      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
-  }
 }
 
 //Create todo Method
@@ -730,6 +692,7 @@ function logout(){
     sessionStorage.removeItem("username");
 }
 
+//sorting by table index number
 function sortTable(n) { 
                 var table; 
                 console.log(n)
@@ -792,6 +755,7 @@ function sortTable(n) {
                 } 
             } 
 
+//show sort in table
 function sortTableShow(){
     hideAllElements();
    document.getElementById("cat-list").style.display= 'block';
