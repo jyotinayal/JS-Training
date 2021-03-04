@@ -4,7 +4,7 @@ body
     /* max-width: 100%; */
     margin: 0px auto;
     float: none;
-    background-color:floralwhite;
+    background-color:#56606a;
 }
 .tab{
     border-style: solid;
@@ -12,8 +12,18 @@ body
     width: 100%;
     
 }
-th, td {
+tr{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+th{
+  background-color: #343a40;
+    color:white;
+    height:50px;
+}
+td {
   border: 1px solid black;
+    background-color: white;
 }
   .nav-bar {
 	width: 100%;
@@ -101,11 +111,13 @@ opacity: 1;
 input[type=button], input[type=reset] {
     width:150px;
     margin: 5px 5px 1px 5px;
-    height: 30px;
+    border-radius:5px;
+    font-weight: 800;
+    height: 40px;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    background-color: #FE8369;
+    background-color: #a6aa9c;
 }
 .Error{
     font-size: 12px;
@@ -131,6 +143,7 @@ input[type=checkbox], input[type=radio]{
 }
 #grp-filter input[type=select] input[type=button]
 {
+    background-color: #a6aa9c;
     width:40%;
 }
 #cat-list{
@@ -152,6 +165,9 @@ input[type=checkbox], input[type=radio]{
 }
 .operations{
     height:50px;
+     background-color: #343a40;
+    padding-top: 10px;
+    padding-left: 8px;
 }
 .op-todo{
     height:40px;
@@ -159,14 +175,11 @@ input[type=checkbox], input[type=radio]{
     width:140px;
     margin-right: 10px;
     cursor: pointer;
-    background-color: bisque;
-    color: chocolate;
+    background-color: #a6aa9c;
+    color: white;
     border-style: none;
-}
-.operations{
-    background-color: darkgrey;
-    padding-top: 10px;
-    padding-left: 8px;
+    font-size: 15px;
+    font-weight: 700;
 }
 .delete-btn{
  width:20px;   

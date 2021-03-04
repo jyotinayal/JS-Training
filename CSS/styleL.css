@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 body{
-         background-color: #F2F2F2;
+            background-color: #c4b6b6;
 }
 .Login-container{
-     margin:0 auto;
-    height: 250px;
-    width:290px;
-    padding-top: 100px; 
+    margin: 100px auto;
+    height: 370px;
+    width: 400px;
+    padding: 20px 10px 20px 20px;
+    background-color: #393e46;
+    border-radius: 30px;
+    color:white;
+     box-shadow: 15px 10px 5px 10px rgb(0 0 0 / 30%)
 }
 h1{
     font-family: 'Mulish', sans-serif;
@@ -17,6 +21,13 @@ h1{
     font-family: 'Mulish', sans-serif;
     font-weight: 400;
     font-size: 20px;
+    padding-top: 5px;
+}
+
+.Login-container a{
+    font-size: 25px;
+    color:#a37eba;
+    font-weight: 800;
 }
 #uname, #pwd {
     border-radius: 5px;
@@ -28,12 +39,15 @@ h1{
     height:14%;
     margin-top: 10px;
     border-radius: 5%;
+    background-color: #fdb827;
+    font-size: 20px;
+    font-weight: 800;
 }
 label{
     display: block;
 }
 .Error{
-    font-size: 12px;
+    font-size: 20px;
     color: red;
     padding-left:15px;
     
