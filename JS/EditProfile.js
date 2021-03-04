@@ -1,4 +1,4 @@
-let res;
+var res;
 let username=sessionStorage.getItem("username");
 let user = JSON.parse(localStorage.getItem('user'));
 (function(){

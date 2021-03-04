@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@300&display=swap');
 body{
-       background-color: #F0E3D0;
+       background-color: #00af91;
 }
 h1{
     text-align: center;
@@ -12,13 +12,14 @@ h1{
 .registration-form{
     margin:0 auto;
     width:350px;
-    background-color: #FFFFFF40;
+    background-color: #007965;
     border-radius: 10px;
     height:auto;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 30px;
     display: block;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%)
 }
 .registration-form label{
     font-family: 'Roboto', sans-serif;
@@ -51,7 +52,9 @@ input[type=button], input[type=reset] {
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    background-color: #FE8369;
+    background-color: #ffcc29;
+    color:black;
+    font-weight: 700;
 }
 .Error{
     font-size: 12px;

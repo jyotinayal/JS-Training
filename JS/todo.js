@@ -217,8 +217,7 @@ function bysearch(element){
     hideAllElements();
     viewLoads();
     document.getElementById('searchtodo').style.display='block';
-    if(element.value == 'tdate')
-        {
+    if(element.value == 'tdate'){
             document.getElementById('bytdate').style.display='block';
             document.getElementById('bytname').style.display='none'
             document.getElementById("search-box").value = 'select';
@@ -298,7 +297,7 @@ function UpdateTodo(){
     document.getElementById('updatetodoRecord').style.display='none'
     var i;
     var f = false;
-    var text="<table class='tab' id='tab1'><tr><th>Task Name</th><th>Todo date</th><th>Category</th<th>Mark as done</th><th>isPublic</th><th>Reminder</th><th>Reminder Date</th><th>Todo Image</th><th></th></tr>";
+    var text="<table class='tab' id='tab1'><tr><th>Task Name</th><th>Todo date</th><th>Category</th><th>Mark as done</th><th>isPublic</th><th>Reminder</th><th>Reminder Date</th><th>Todo Image</th><th>Update</th></tr>";
     for (i = 0; i < usertodo.length; i++) 
     {
        if(usertodo[i].username == username) 
